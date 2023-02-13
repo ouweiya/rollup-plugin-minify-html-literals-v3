@@ -1,4 +1,4 @@
-# Notice
+## Notice
 
 This is a fork of the official repository [rollup-plugin-minify-html-literals](https://github.com/asyncLiz/rollup-plugin-minify-html-literals) because the Rollup dependency version remains at v2, so this repository serves as a temporary fix.
 
