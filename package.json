@@ -1,11 +1,12 @@
 {
-  "name": "rollup-plugin-minify-html-literals",
+  "name": "rollup-plugin-minify-html-literals-v3",
   "version": "1.2.6",
   "description": "Rollup plugin to minify HTML template literal strings",
   "main": "index.js",
   "types": "index.d.ts",
   "author": "Liz Mitchell <asyncliz@gmail.com>",
   "license": "MIT",
+  "type": "module",
   "keywords": [
     "rollup-plugin",
     "minify",
@@ -75,7 +76,7 @@
     "nyc": "^15.0.0",
     "prettier": "^1.13.7",
     "rimraf": "^2.6.2",
-    "rollup": "^3.5.1",
+    "rollup": "^3.14.0",
     "sinon": "^6.1.4",
     "source-map-support": "^0.5.6",
     "standard-version": "^9.0.0",
