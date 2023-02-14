@@ -12,7 +12,7 @@ npm i rollup-plugin-minify-html-literals-v3 -D
 
 ## Usage
 
-**rollup.config.js**
+**`rollup.config.js`**
 
 ```js
 import minifyLiterals from 'rollup-plugin-minify-html-literals-v3';
@@ -56,4 +56,4 @@ minifyLiterals({
 
 ### Advanced Options
 
-For more detailed configuration, go to [`minify-html-literals`](https://github.com/asyncLiz/minify-html-literals).
+For more detailed configuration, go to [minify-html-literals](https://github.com/asyncLiz/minify-html-literals).
