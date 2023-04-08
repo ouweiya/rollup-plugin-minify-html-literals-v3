@@ -1,14 +1,20 @@
 {
+  "include": ["src/**/*.ts"],
   "compilerOptions": {
     "declaration": true,
-    // "module": "commonjs",
-    "module": "esnext",
-    "moduleResolution": "node",
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
     "sourceMap": true,
-    "strict": true,
-    "target": "esnext"
+    "inlineSources": true,
+    "resolveJsonModule": true,
+    "rootDir": "src",
+    "removeComments": true,
+    "lib": ["es2022"],
+    "outDir": "./dist",
+    "experimentalDecorators": true,
+    "useDefineForClassFields": false,
+    "ignoreDeprecations": "5.0",
+    "noUnusedLocals": false,
+    "noUnusedParameters": false,
+    "noImplicitOverride": false
   },
-  "include": ["index.ts", "declarations.d.ts"]
+  "extends": "@tsconfig/node18-strictest-esm/tsconfig.json"
 }

@@ -1,6 +1,2 @@
-/node_modules
-/coverage
-/.nyc_output
-**/*.js
-**/*.map
-**/*.d.ts
+node_modules
+package-lock.json

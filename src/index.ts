@@ -1,16 +1,7 @@
-/// <reference path="declarations.d.ts" />
-import * as minify from 'minify-html-literals';
-import {
-  Plugin,
-  SourceDescription,
-  TransformHook,
-  PluginContext
-} from 'rollup';
+import minify, { DefaultOptions } from 'minify-html-literals';
+import type { Plugin, SourceDescription } from 'rollup';
 import { createFilter } from 'rollup-pluginutils';
 
-/**
- * Plugin options.
- */
 export interface Options {
   /**
    * Pattern or array of patterns of files to minify.
@@ -40,9 +31,7 @@ export interface Options {
   filter?: (id: string) => boolean;
 }
 
-export default function(
-  options: Options = {}
-): Plugin & { transform: TransformHook } {
+export default function (options: Options = {}): Plugin {
   if (!options.minifyHTMLLiterals) {
     options.minifyHTMLLiterals = minify.minifyHTMLLiterals;
   }
@@ -51,21 +40,18 @@ export default function(
     options.filter = createFilter(options.include, options.exclude);
   }
 
-  const minifyOptions = <minify.DefaultOptions>options.options || {};
+  const minifyOptions = <DefaultOptions>options.options || {};
+  console.log('minifyOptions', minifyOptions);
 
   return {
     name: 'minify-html-literals',
-    transform(this: PluginContext, code: string, id: string) {
+    transform(code, id) {
       if (options.filter!(id)) {
         try {
-          return <SourceDescription>options.minifyHTMLLiterals!(code, {
-            ...minifyOptions,
-            fileName: id
-          });
+          const result = <SourceDescription>options.minifyHTMLLiterals!(code, { ...minifyOptions, fileName: id });
+          return result;
         } catch (error) {
-          // check if Error ese treat as string
-          const message =
-            error instanceof Error ? error.message : (error as string);
+          const message = error instanceof Error ? error.message : (error as string);
 
           if (options.failOnError) {
             this.error(message);
@@ -74,6 +60,7 @@ export default function(
           }
         }
       }
-    }
+      return null;
+    },
   };
 }
