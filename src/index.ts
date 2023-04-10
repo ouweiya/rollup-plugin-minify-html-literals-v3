@@ -1,6 +1,6 @@
 import minify, { DefaultOptions } from 'minify-html-literals';
 import type { Plugin, SourceDescription } from 'rollup';
-import { createFilter } from 'rollup-pluginutils';
+import { createFilter } from '@rollup/pluginutils';
 
 export interface Options {
   /**
@@ -41,7 +41,6 @@ export default function (options: Options = {}): Plugin {
   }
 
   const minifyOptions = <DefaultOptions>options.options || {};
-  console.log('minifyOptions', minifyOptions);
 
   return {
     name: 'minify-html-literals',

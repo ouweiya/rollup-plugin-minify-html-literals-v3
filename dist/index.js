@@ -1,5 +1,5 @@
 import minify from 'minify-html-literals';
-import { createFilter } from 'rollup-pluginutils';
+import { createFilter } from '@rollup/pluginutils';
 export default function (options = {}) {
     if (!options.minifyHTMLLiterals) {
         options.minifyHTMLLiterals = minify.minifyHTMLLiterals;
@@ -8,7 +8,6 @@ export default function (options = {}) {
         options.filter = createFilter(options.include, options.exclude);
     }
     const minifyOptions = options.options || {};
-    console.log('minifyOptions', minifyOptions);
     return {
         name: 'minify-html-literals',
         transform(code, id) {
