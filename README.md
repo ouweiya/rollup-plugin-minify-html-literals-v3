@@ -4,6 +4,8 @@ This is a fork of the official repository [rollup-plugin-minify-html-literals](h
 
 Once the official repository is upgraded to v3, this repository will be archived.
 
+**Upgraded to Rollup v4, only need to synchronize types, no code changes.**
+
 ## Install
 
 ```console
